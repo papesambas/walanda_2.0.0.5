@@ -53,6 +53,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $fullname = null;
 
+    #[ORM\Column]
+    private ?bool $isVerified = false;
+
+    public function __toString()
+    {
+        return $this->fullname;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -191,6 +199,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setFullname(string $fullname): static
     {
         $this->fullname = $fullname;
+
+        return $this;
+    }
+
+    public function isIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

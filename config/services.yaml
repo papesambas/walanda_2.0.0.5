@@ -4,6 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    app.jwtsecret: '%env(JWT_SECRET)%'
+    documents_eleves_directory: '%kernel.project_dir%/public/uploads/eleves/documents'
+    documents_personnel_directory: '%kernel.project_dir%/public/uploads/personnels/documents'
+    documents_administration_directory: '%kernel.project_dir%/public/administration/documents'
 
 services:
     # default configuration for services in *this* file
@@ -19,6 +23,177 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    App\Service\eleveService:
+        arguments:
+            $requestStack: '@request_stack'
+            $elevesRepos: '@App\Repository\ElevesRepository'
+            $paginator: '@knp_paginator'
+            
+    App\EventListener\anneeScolairesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\AnneeScolaires'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\AnneeScolaires'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\cerclesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Cercles'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Cercles'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\classesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Classes'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Classes'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\communesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Communes'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Communes'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\contratsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Contrats'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Contrats'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\cyclesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Cycles'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Cycles'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\departementsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Departements'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Departements'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\departsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Departs'}
+    App\EventListener\ecoleProvenancesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\EcoleProvenances'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\EcoleProvenances'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\enseignementsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Enseignements'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Enseignements'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\etablissementsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Etablissements'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Etablissements'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\lieuNaissancesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\LieuNaissances'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\LieuNaissances'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\niveauEtudesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\NiveauEtudes'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\NiveauEtudes'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\niveauxEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Niveaux'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Niveaux'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\nomsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Noms'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Noms'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\periodicitesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Periodicites'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Periodicites'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\personnelsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Personnels'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Personnels'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\prenomsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Prenoms'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Prenoms'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\professionsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Professions'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Professions'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\regionsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Regions'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Regions'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\specialitesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Specialites'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Specialites'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\statutsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Statuts'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Statuts'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\usersEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Users'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Users'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\antecedentsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Antecedents'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Antecedents'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\appreciationsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Appreciations'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Appreciations'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\comportementsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Comportements'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Comportements'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\evaluationsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Evaluations'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Evaluations'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\sanctionsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Sanctions'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Sanctions'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\dossierElevesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\DossierEleves'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\DossierEleves'}    # add more service definitions when explicit configuration is needed
+
+    App\EventListener\dossierPersonnelsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\DossierPersonnels'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\DossierPersonnels'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\peresEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Peres'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Peres'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\meresEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Meres'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Meres'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\parentsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Parents'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Parents'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\elevesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Eleves'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Eleves'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\documentsEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Documents'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Documents'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\scolarites1EntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Scolarites1'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Scolarites1'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\scolarites2EntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Scolarites2'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Scolarites2'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\scolarites3EntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Scolarites3'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Scolarites3'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\ninasEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Ninas'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Ninas'}    # add more service definitions when explicit configuration is needed
+    App\EventListener\telephonesEntityListener:
+            tags:
+                - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Telephones'}
+                - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Telephones'}    # add more service definitions when explicit configuration is needed
+
+
+    # please note that last definitions always *replace* previous ones
+
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

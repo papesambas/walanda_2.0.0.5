@@ -1,0 +1,59 @@
+.custom-checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .custom-checkbox input[type="checkbox"] {
+    order: 2;
+    margin-bottom: 5px; /* Ajustez la marge selon vos besoins */
+  }
+  
+  .custom-checkbox label {
+    order: 1;
+    margin-top: 5px; /* Ajustez la marge selon vos besoins */
+  }
+  
+  .custom-checkbox input[type="checkbox"] {
+    /* Styles pour masquer la checkbox native */
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .custom-checkbox label {
+    position: relative;
+    padding-left: 25px; /* Ajustez le padding selon vos besoins */
+    cursor: pointer;
+  }
+  
+  .custom-checkbox label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px; /* Ajustez la taille selon vos besoins */
+    height: 20px; /* Ajustez la taille selon vos besoins */
+    border: 2px solid #000; /* Couleur de la bordure */
+    background-color: #f01313; /* Couleur de fond */
+  }
+  
+  .custom-checkbox input[type="checkbox"]:checked + label::before {
+    background-color:darken(#428bca, 20%); /* Couleur de fond lorsque le checkbox est coché */
+  }
+  
+  .custom-checkbox label::after {
+    content: "";
+    position: absolute;
+    top: 6px; /* Ajustez la position selon vos besoins */
+    left: 6px; /* Ajustez la position selon vos besoins */
+    width: 8px; /* Ajustez la taille selon vos besoins */
+    height: 8px; /* Ajustez la taille selon vos besoins */
+    background-color: #fff; /* Couleur de la coche */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .custom-checkbox input[type="checkbox"]:checked + label::after {
+    opacity: 1; /* Afficher la coche lorsque le checkbox est coché */
+  }
+  

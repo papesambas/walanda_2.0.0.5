@@ -48,7 +48,7 @@ class RegistrationFormType extends AbstractType
                     return $er->createQueryBuilder('p')
                         ->orderBy('p.designation', 'ASC');
                 },
-                'placeholder' => 'Entrer ou Choisir un préclsnom',
+                'placeholder' => 'Entrer ou Choisir un prénom',
                 'attr' => [
                     'class' => 'select-prenom'
                 ],
@@ -73,6 +73,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('telephone', TelType::class, [
                 'label' => 'Téléphone',
+                'attr' => [
+                    'placeholder' => 'exemple +22300000000',
+                ],
                 'constraints' => new Length([
                     'min' => 12,
                     'minMessage' => 'Your phone number should be at least {{ limit }} characters',

@@ -3,9 +3,9 @@
 namespace App\EventListener;
 
 use LogicException;
-use App\Entity\TypeEnseignements;
-use Doctrine\Persistence\Event\LifecycleEventArgs;
+use App\Entity\Enseignements;
 use Symfony\Bundle\SecurityBundle\Security;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class enseignementsEntityListener
@@ -19,7 +19,7 @@ class enseignementsEntityListener
         $this->Slugger = $Slugger;
     }
 
-    public function prePersist(TypeEnseignements $enseignement, LifecycleEventArgs $arg): void
+    public function prePersist(Enseignements $enseignement, LifecycleEventArgs $arg): void
     {
         /*$user = $this->Securty->getUser();
         if ($user === null) {
@@ -32,7 +32,7 @@ class enseignementsEntityListener
             ->setSlug($this->getClassesSlug($enseignement));
     }
 
-    public function preUpdate(TypeEnseignements $enseignement, LifecycleEventArgs $arg): void
+    public function preUpdate(Enseignements $enseignement, LifecycleEventArgs $arg): void
     {
         /*$user = $this->Securty->getUser();
         if ($user === null) {
@@ -44,7 +44,7 @@ class enseignementsEntityListener
     }
 
 
-    private function getClassesSlug(TypeEnseignements $enseignement): string
+    private function getClassesSlug(Enseignements $enseignement): string
     {
         $slug = mb_strtolower($enseignement->getDesignation() . '' . $enseignement->getId() . '' . time(), 'UTF-8');
         return $this->Slugger->slug($slug);

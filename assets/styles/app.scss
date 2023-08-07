@@ -1,5 +1,4 @@
-body {
-    background-color: lightgray;
-}
+// import custom
+@import "custom";
 // Import all of Bootstrap's CSS
-@import "bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
