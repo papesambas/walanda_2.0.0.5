@@ -29,9 +29,13 @@ class Cycles
     #[ORM\OneToMany(mappedBy: 'cycle', targetEntity: Niveaux::class)]
     private Collection $niveauxes;
 
+    #[ORM\OneToMany(mappedBy: 'cycle', targetEntity: Departements::class)]
+    private Collection $departements;
+
     public function __construct()
     {
         $this->niveauxes = new ArrayCollection();
+        $this->departements = new ArrayCollection();
     }
 
     public function __toString()
@@ -92,6 +96,36 @@ class Cycles
             // set the owning side to null (unless already changed)
             if ($niveaux->getCycle() === $this) {
                 $niveaux->setCycle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Departements>
+     */
+    public function getDepartements(): Collection
+    {
+        return $this->departements;
+    }
+
+    public function addDepartement(Departements $departement): static
+    {
+        if (!$this->departements->contains($departement)) {
+            $this->departements->add($departement);
+            $departement->setCycle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDepartement(Departements $departement): static
+    {
+        if ($this->departements->removeElement($departement)) {
+            // set the owning side to null (unless already changed)
+            if ($departement->getCycle() === $this) {
+                $departement->setCycle(null);
             }
         }
 

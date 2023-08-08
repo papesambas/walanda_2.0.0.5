@@ -4,13 +4,13 @@ namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
 use App\Entity\Trait\SlugTrait;
-use App\Repository\StatutsRepository;
+use App\Repository\DepartementsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: StatutsRepository::class)]
-class Statuts
+#[ORM\Entity(repositoryClass: DepartementsRepository::class)]
+class Departements
 {
     use CreatedAtTrait;
     use SlugTrait;
@@ -22,21 +22,15 @@ class Statuts
     #[ORM\Column(length: 150)]
     private ?string $designation = null;
 
-    #[ORM\ManyToOne(inversedBy: 'statuts')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Niveaux $niveau = null;
+    #[ORM\ManyToOne(inversedBy: 'departements')]
+    private ?Cycles $cycle = null;
 
-    #[ORM\OneToMany(mappedBy: 'statut', targetEntity: Eleves::class)]
+    #[ORM\OneToMany(mappedBy: 'departement', targetEntity: Eleves::class)]
     private Collection $eleves;
 
     public function __construct()
     {
         $this->eleves = new ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return $this->designation;
     }
 
     public function getId(): ?int
@@ -56,14 +50,14 @@ class Statuts
         return $this;
     }
 
-    public function getNiveau(): ?Niveaux
+    public function getCycle(): ?Cycles
     {
-        return $this->niveau;
+        return $this->cycle;
     }
 
-    public function setNiveau(?Niveaux $niveau): static
+    public function setCycle(?Cycles $cycle): static
     {
-        $this->niveau = $niveau;
+        $this->cycle = $cycle;
 
         return $this;
     }
@@ -80,7 +74,7 @@ class Statuts
     {
         if (!$this->eleves->contains($elefe)) {
             $this->eleves->add($elefe);
-            $elefe->setStatut($this);
+            $elefe->setDepartement($this);
         }
 
         return $this;
@@ -90,8 +84,8 @@ class Statuts
     {
         if ($this->eleves->removeElement($elefe)) {
             // set the owning side to null (unless already changed)
-            if ($elefe->getStatut() === $this) {
-                $elefe->setStatut(null);
+            if ($elefe->getDepartement() === $this) {
+                $elefe->setDepartement(null);
             }
         }
 

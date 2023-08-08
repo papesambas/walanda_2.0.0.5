@@ -4,13 +4,13 @@ namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
 use App\Entity\Trait\SlugTrait;
-use App\Repository\StatutsRepository;
+use App\Repository\ClassesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: StatutsRepository::class)]
-class Statuts
+#[ORM\Entity(repositoryClass: ClassesRepository::class)]
+class Classes
 {
     use CreatedAtTrait;
     use SlugTrait;
@@ -22,21 +22,25 @@ class Statuts
     #[ORM\Column(length: 150)]
     private ?string $designation = null;
 
-    #[ORM\ManyToOne(inversedBy: 'statuts')]
+    #[ORM\Column]
+    private ?int $capacite = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $effectif = null;
+
+    #[ORM\Column]
+    private ?int $disponibilite = null;
+
+    #[ORM\ManyToOne(inversedBy: 'classes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Niveaux $niveau = null;
 
-    #[ORM\OneToMany(mappedBy: 'statut', targetEntity: Eleves::class)]
+    #[ORM\OneToMany(mappedBy: 'classe', targetEntity: Eleves::class)]
     private Collection $eleves;
 
     public function __construct()
     {
         $this->eleves = new ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return $this->designation;
     }
 
     public function getId(): ?int
@@ -52,6 +56,42 @@ class Statuts
     public function setDesignation(string $designation): static
     {
         $this->designation = $designation;
+
+        return $this;
+    }
+
+    public function getCapacite(): ?int
+    {
+        return $this->capacite;
+    }
+
+    public function setCapacite(int $capacite): static
+    {
+        $this->capacite = $capacite;
+
+        return $this;
+    }
+
+    public function getEffectif(): ?int
+    {
+        return $this->effectif;
+    }
+
+    public function setEffectif(?int $effectif): static
+    {
+        $this->effectif = $effectif;
+
+        return $this;
+    }
+
+    public function getDisponibilite(): ?int
+    {
+        return $this->disponibilite;
+    }
+
+    public function setDisponibilite(int $disponibilite): static
+    {
+        $this->disponibilite = $disponibilite;
 
         return $this;
     }
@@ -80,7 +120,7 @@ class Statuts
     {
         if (!$this->eleves->contains($elefe)) {
             $this->eleves->add($elefe);
-            $elefe->setStatut($this);
+            $elefe->setClasse($this);
         }
 
         return $this;
@@ -90,8 +130,8 @@ class Statuts
     {
         if ($this->eleves->removeElement($elefe)) {
             // set the owning side to null (unless already changed)
-            if ($elefe->getStatut() === $this) {
-                $elefe->setStatut(null);
+            if ($elefe->getClasse() === $this) {
+                $elefe->setClasse(null);
             }
         }
 

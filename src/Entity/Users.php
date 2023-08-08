@@ -56,6 +56,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $isVerified = false;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $resetToken = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Eleves $eleves = null;
+
     public function __toString()
     {
         return $this->fullname;
@@ -211,6 +217,40 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): static
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
+    public function getEleves(): ?Eleves
+    {
+        return $this->eleves;
+    }
+
+    public function setEleves(?Eleves $eleves): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($eleves === null && $this->eleves !== null) {
+            $this->eleves->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($eleves !== null && $eleves->getUser() !== $this) {
+            $eleves->setUser($this);
+        }
+
+        $this->eleves = $eleves;
 
         return $this;
     }
