@@ -48,6 +48,12 @@ class Meres
         $this->parents = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->fullname ?? 'Nom inconnu';
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,12 +119,12 @@ class Meres
         return $this;
     }
 
-    public function getFullname(): ?string
+    public function getFullname()
     {
         return $this->fullname;
     }
 
-    public function setFullname(string $fullname): static
+    public function setFullname($fullname): static
     {
         $this->fullname = $fullname;
 

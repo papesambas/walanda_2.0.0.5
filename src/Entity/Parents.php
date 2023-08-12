@@ -17,11 +17,11 @@ class Parents
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'parents')]
+    #[ORM\ManyToOne(inversedBy: 'parents', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Peres $pere = null;
 
-    #[ORM\ManyToOne(inversedBy: 'parents')]
+    #[ORM\ManyToOne(inversedBy: 'parents', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Meres $mere = null;
 

@@ -51,7 +51,7 @@ class Peres
 
     public function __toString()
     {
-        return $this->fullname;
+        return $this->fullname ?? 'Nom inconnu';
     }
 
     public function getId(): ?int
