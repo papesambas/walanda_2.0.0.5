@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peres{% endblock %}
+
+{% block body %}
+    <h1>Peres</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pere.id }}</td>
+            </tr>
+            <tr>
+                <th>Fullname</th>
+                <td>{{ pere.fullname }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ pere.createdAt ? pere.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ pere.updatedAt ? pere.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ pere.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_peres_index') }}">back to list</a>
+
+    <a href="{{ path('app_peres_edit', {'id': pere.id}) }}">edit</a>
+
+    {{ include('peres/_delete_form.html.twig') }}
+{% endblock %}

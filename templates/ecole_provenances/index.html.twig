@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EcoleProvenances index{% endblock %}
+
+{% block body %}
+    <h1>EcoleProvenances index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ecole_provenance in ecole_provenances %}
+            <tr>
+                <td>{{ ecole_provenance.id }}</td>
+                <td>{{ ecole_provenance.designation }}</td>
+                <td>{{ ecole_provenance.adresse }}</td>
+                <td>{{ ecole_provenance.telephone }}</td>
+                <td>{{ ecole_provenance.email }}</td>
+                <td>{{ ecole_provenance.createdAt ? ecole_provenance.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ ecole_provenance.updatedAt ? ecole_provenance.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ ecole_provenance.slug }}</td>
+                <td>
+                    <a href="{{ path('app_ecole_provenances_show', {'id': ecole_provenance.id}) }}">show</a>
+                    <a href="{{ path('app_ecole_provenances_edit', {'id': ecole_provenance.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ecole_provenances_new') }}">Create new</a>
+{% endblock %}

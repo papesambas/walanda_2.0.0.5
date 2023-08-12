@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classes index{% endblock %}
+
+{% block body %}
+    <h1>Classes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Capacite</th>
+                <th>Effectif</th>
+                <th>Disponibilite</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for class in classes %}
+            <tr>
+                <td>{{ class.id }}</td>
+                <td>{{ class.designation }}</td>
+                <td>{{ class.capacite }}</td>
+                <td>{{ class.effectif }}</td>
+                <td>{{ class.disponibilite }}</td>
+                <td>{{ class.createdAt ? class.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ class.updatedAt ? class.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ class.slug }}</td>
+                <td>
+                    <a href="{{ path('app_classes_show', {'id': class.id}) }}">show</a>
+                    <a href="{{ path('app_classes_edit', {'id': class.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_classes_new') }}">Create new</a>
+{% endblock %}

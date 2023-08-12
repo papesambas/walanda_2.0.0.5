@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleves index{% endblock %}
+
+{% block body %}
+    <h1>Eleves index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Sexe</th>
+                <th>StatutFinance</th>
+                <th>DateNaissance</th>
+                <th>DateExtrait</th>
+                <th>NumExtrait</th>
+                <th>IsAdmis</th>
+                <th>IsActif</th>
+                <th>IsHandicap</th>
+                <th>NatureHandicap</th>
+                <th>DateInscription</th>
+                <th>DateRecrutement</th>
+                <th>Fullname</th>
+                <th>Adresse</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for elefe in eleves %}
+            <tr>
+                <td>{{ elefe.id }}</td>
+                <td>{{ elefe.matricule }}</td>
+                <td>{{ elefe.sexe }}</td>
+                <td>{{ elefe.statutFinance }}</td>
+                <td>{{ elefe.dateNaissance ? elefe.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ elefe.dateExtrait ? elefe.dateExtrait|date('Y-m-d') : '' }}</td>
+                <td>{{ elefe.numExtrait }}</td>
+                <td>{{ elefe.isAdmis ? 'Yes' : 'No' }}</td>
+                <td>{{ elefe.isActif ? 'Yes' : 'No' }}</td>
+                <td>{{ elefe.isHandicap ? 'Yes' : 'No' }}</td>
+                <td>{{ elefe.natureHandicap }}</td>
+                <td>{{ elefe.dateInscription ? elefe.dateInscription|date('Y-m-d') : '' }}</td>
+                <td>{{ elefe.dateRecrutement ? elefe.dateRecrutement|date('Y-m-d') : '' }}</td>
+                <td>{{ elefe.fullname }}</td>
+                <td>{{ elefe.adresse }}</td>
+                <td>{{ elefe.createdAt ? elefe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ elefe.updatedAt ? elefe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ elefe.slug }}</td>
+                <td>
+                    <a href="{{ path('app_eleves_show', {'id': elefe.id}) }}">show</a>
+                    <a href="{{ path('app_eleves_edit', {'id': elefe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_eleves_new') }}">Create new</a>
+{% endblock %}

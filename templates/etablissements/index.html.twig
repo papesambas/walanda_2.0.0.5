@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissements index{% endblock %}
+
+{% block body %}
+    <h1>Etablissements index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>FormeJuridique</th>
+                <th>Adresse</th>
+                <th>NumDecisionCreation</th>
+                <th>NumDecisionOuverture</th>
+                <th>DateOuverture</th>
+                <th>NumSocial</th>
+                <th>NumFiscal</th>
+                <th>Telephone</th>
+                <th>TelephoneMobile</th>
+                <th>CpteBancaire</th>
+                <th>Email</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etablissement in etablissements %}
+            <tr>
+                <td>{{ etablissement.id }}</td>
+                <td>{{ etablissement.designation }}</td>
+                <td>{{ etablissement.formeJuridique }}</td>
+                <td>{{ etablissement.adresse }}</td>
+                <td>{{ etablissement.numDecisionCreation }}</td>
+                <td>{{ etablissement.numDecisionOuverture }}</td>
+                <td>{{ etablissement.dateOuverture ? etablissement.dateOuverture|date('Y-m-d') : '' }}</td>
+                <td>{{ etablissement.numSocial }}</td>
+                <td>{{ etablissement.numFiscal }}</td>
+                <td>{{ etablissement.telephone }}</td>
+                <td>{{ etablissement.telephoneMobile }}</td>
+                <td>{{ etablissement.cpteBancaire }}</td>
+                <td>{{ etablissement.email }}</td>
+                <td>{{ etablissement.createdAt ? etablissement.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etablissement.updatedAt ? etablissement.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etablissement.slug }}</td>
+                <td>
+                    <a href="{{ path('app_etablissements_show', {'id': etablissement.id}) }}">show</a>
+                    <a href="{{ path('app_etablissements_edit', {'id': etablissement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_etablissements_new') }}">Create new</a>
+{% endblock %}

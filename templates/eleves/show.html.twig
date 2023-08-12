@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleves{% endblock %}
+
+{% block body %}
+    <h1>Eleves</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ elefe.id }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ elefe.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ elefe.sexe }}</td>
+            </tr>
+            <tr>
+                <th>StatutFinance</th>
+                <td>{{ elefe.statutFinance }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ elefe.dateNaissance ? elefe.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateExtrait</th>
+                <td>{{ elefe.dateExtrait ? elefe.dateExtrait|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NumExtrait</th>
+                <td>{{ elefe.numExtrait }}</td>
+            </tr>
+            <tr>
+                <th>IsAdmis</th>
+                <td>{{ elefe.isAdmis ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsActif</th>
+                <td>{{ elefe.isActif ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsHandicap</th>
+                <td>{{ elefe.isHandicap ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>NatureHandicap</th>
+                <td>{{ elefe.natureHandicap }}</td>
+            </tr>
+            <tr>
+                <th>DateInscription</th>
+                <td>{{ elefe.dateInscription ? elefe.dateInscription|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateRecrutement</th>
+                <td>{{ elefe.dateRecrutement ? elefe.dateRecrutement|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fullname</th>
+                <td>{{ elefe.fullname }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ elefe.adresse }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ elefe.createdAt ? elefe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ elefe.updatedAt ? elefe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ elefe.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_eleves_index') }}">back to list</a>
+
+    <a href="{{ path('app_eleves_edit', {'id': elefe.id}) }}">edit</a>
+
+    {{ include('eleves/_delete_form.html.twig') }}
+{% endblock %}

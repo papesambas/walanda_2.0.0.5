@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EcoleProvenances{% endblock %}
+
+{% block body %}
+    <h1>EcoleProvenances</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ecole_provenance.id }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ ecole_provenance.designation }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ ecole_provenance.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ ecole_provenance.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ ecole_provenance.email }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ ecole_provenance.createdAt ? ecole_provenance.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ ecole_provenance.updatedAt ? ecole_provenance.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ ecole_provenance.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ecole_provenances_index') }}">back to list</a>
+
+    <a href="{{ path('app_ecole_provenances_edit', {'id': ecole_provenance.id}) }}">edit</a>
+
+    {{ include('ecole_provenances/_delete_form.html.twig') }}
+{% endblock %}

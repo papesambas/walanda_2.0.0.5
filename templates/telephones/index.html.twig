@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Telephones index{% endblock %}
+
+{% block body %}
+    <h1>Telephones index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for telephone in telephones %}
+            <tr>
+                <td>{{ telephone.id }}</td>
+                <td>{{ telephone.numero }}</td>
+                <td>{{ telephone.createdAt ? telephone.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ telephone.updatedAt ? telephone.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ telephone.slug }}</td>
+                <td>
+                    <a href="{{ path('app_telephones_show', {'id': telephone.id}) }}">show</a>
+                    <a href="{{ path('app_telephones_edit', {'id': telephone.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_telephones_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LieuNaissances index{% endblock %}
+
+{% block body %}
+    <h1>LieuNaissances index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lieu_naissance in lieu_naissances %}
+            <tr>
+                <td>{{ lieu_naissance.id }}</td>
+                <td>{{ lieu_naissance.designation }}</td>
+                <td>{{ lieu_naissance.createdAt ? lieu_naissance.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ lieu_naissance.updatedAt ? lieu_naissance.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ lieu_naissance.slug }}</td>
+                <td>
+                    <a href="{{ path('app_lieu_naissances_show', {'id': lieu_naissance.id}) }}">show</a>
+                    <a href="{{ path('app_lieu_naissances_edit', {'id': lieu_naissance.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lieu_naissances_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statuts index{% endblock %}
+
+{% block body %}
+    <h1>Statuts index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for statut in statuts %}
+            <tr>
+                <td>{{ statut.id }}</td>
+                <td>{{ statut.designation }}</td>
+                <td>{{ statut.createdAt ? statut.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ statut.updatedAt ? statut.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ statut.slug }}</td>
+                <td>
+                    <a href="{{ path('app_statuts_show', {'id': statut.id}) }}">show</a>
+                    <a href="{{ path('app_statuts_edit', {'id': statut.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_statuts_new') }}">Create new</a>
+{% endblock %}
