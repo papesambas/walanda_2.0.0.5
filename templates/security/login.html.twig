@@ -22,6 +22,7 @@
                     {% endif %}
 
                     <h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
+<<<<<<< HEAD
                     <label class="mt-1" for="inputUsername">Username</label>
                     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mt-1" autocomplete="username" required="required" autofocus="autofocus">
                         <label class="mt-1" for="inputPassword">Mot de passe</label>
@@ -36,6 +37,27 @@
                                             Mot de passe oublié
                                         </a>
                                     </div>
+=======
+                    <label for="inputUsername">Username</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mt-1" autocomplete="username" required="required" autofocus="autofocus">
+                        <label class="mt-1" for="inputPassword">Mot de passe</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control mt-1" autocomplete="current-password" required="required">
+                            <input
+                                type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                {#Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                See https://symfony.com/doc/current/security/remember_me.html#}
+                                <div class="row">
+                                    <div class="checkbox mb-3 mt-1">
+                                        <label>
+                                            <input type="checkbox" name="_remember_me">
+                                                Remember me
+                                            </label>
+                                            <a class="ms-3 text-danger" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+                                        </div>
+                                    </div>
+
+>>>>>>> b9bfd1581cf1d182a9b857f4d519ca584e8cdf49
                                     <button class="btn btn-sm btn-primary mt-1" type="submit">Me connecter</button>
                                 </form>
                             </div>

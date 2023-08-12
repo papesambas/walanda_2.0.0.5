@@ -7,14 +7,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+<<<<<<< HEAD:src/Form/ResetPasswordRequestType.php
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+=======
+use Symfony\Component\Validator\Constraints\NotBlank;
+>>>>>>> b9bfd1581cf1d182a9b857f4d519ca584e8cdf49:src/Form/ResetPasswordRequestFormType.php
 
-class ResetPasswordRequestType extends AbstractType
+class ResetPasswordRequestFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+<<<<<<< HEAD:src/Form/ResetPasswordRequestType.php
             ->add('username', TextType::class, [
                 'attr' => ['placeholder' => "Nom d'utilisateur"],
                 'constraints' => [
@@ -31,12 +36,21 @@ class ResetPasswordRequestType extends AbstractType
 
                 'error_bubbling' => false,
             ]);
+=======
+            ->add('email', EmailType::class, [
+                'attr' => ['autocomplete' => 'email'],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter your email',
+                    ]),
+                ],
+            ])
+        ;
+>>>>>>> b9bfd1581cf1d182a9b857f4d519ca584e8cdf49:src/Form/ResetPasswordRequestFormType.php
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            // Configure your form options here
-        ]);
+        $resolver->setDefaults([]);
     }
 }
