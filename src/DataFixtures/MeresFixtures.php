@@ -18,7 +18,6 @@ class MeresFixtures extends Fixture implements DependentFixtureInterface
 
         for ($i = 1; $i <= 120; $i++) {
             $profession = $this->getReference('profession_' . $faker->numberBetween(1, 150));
-            $pere = $this->getReference('pere_' . $faker->numberBetween(1, 100));
             $mere = new Meres();
 
             do {
@@ -32,7 +31,6 @@ class MeresFixtures extends Fixture implements DependentFixtureInterface
             $mere->setNom($nom);
             $mere->setPrenom($prenom);
             $mere->setProfession($profession);
-            $mere->setEpoux($pere);
             $mere->setTelephone($telephone);
 
             $manager->persist($mere);

@@ -27,9 +27,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statutPS_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -49,7 +47,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
@@ -63,9 +61,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statutPS_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -85,7 +81,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -100,9 +96,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statutMS_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -122,24 +116,20 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 60 && $i <= 80) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classeMS-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statutMS_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -159,24 +149,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 80 && $i <= 100) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe1ere-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut1ere_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -196,24 +181,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 100 && $i <= 120) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe1ere-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut1ere_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -233,24 +213,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 120 && $i <= 140) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe2eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut2eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -270,24 +245,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 140 && $i <= 160) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe2eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut2eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -307,24 +277,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 160 && $i <= 180) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe3eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut3eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -344,24 +309,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 180 && $i <= 200) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe3eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut3eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -381,24 +341,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 200 && $i <= 220) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe4eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut4eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -418,23 +373,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 220 && $i <= 240) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe4eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut4eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -455,23 +406,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 240 && $i <= 260) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe5eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut5eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -492,24 +439,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 260 && $i <= 280) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe5eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut5eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -529,24 +471,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 280 && $i <= 300) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe6eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut6eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -566,24 +503,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 300 && $i <= 320) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe6eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut6eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -603,24 +535,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 320 && $i <= 340) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe7eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut7eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -640,24 +567,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 340 && $i <= 360) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe7eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut7eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -677,24 +599,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 360 && $i <= 380) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe7eme-' . $faker->numberBetween(3, 3));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut7eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -714,24 +631,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 380 && $i <= 400) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe8eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut8eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -751,24 +663,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 400 && $i <= 420) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe8eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut8eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -788,24 +695,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 420 && $i <= 440) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe8eme-' . $faker->numberBetween(3, 3));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut8eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -825,24 +727,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 440 && $i <= 460) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe9eme-' . $faker->numberBetween(1, 1));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut9eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -862,24 +759,19 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
-
                 $manager->persist($eleve);
                 $this->addReference('eleve_' . $i, $eleve);
             } elseif ($i > 460 && $i <= 480) {
                 $departement = $this->getReference('departement_' . $faker->numberBetween(1, 1));
-
                 $classe = $this->getReference('classe9eme-' . $faker->numberBetween(2, 2));
                 $lieu = $this->getReference('lieu_' . $faker->numberBetween(1, 100));
                 $nom  = $this->getReference('nom_' . $faker->numberBetween(1, 50));
                 $prenom  = $this->getReference('prenom_' . $faker->numberBetween(1, 100));
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut9eme_' . $faker->numberBetween(1, 3));
-
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
-
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
                 $eleve->setDateNaissance($faker->dateTimeBetween('-17 years', '-7 years'));
@@ -899,7 +791,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -914,8 +806,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut9eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -936,7 +828,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -951,8 +843,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut10eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -973,7 +865,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -988,8 +880,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut10eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1010,7 +902,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1025,8 +917,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut10eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1047,7 +939,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1062,8 +954,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut10eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1084,7 +976,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1099,8 +991,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut11eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1121,7 +1013,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1136,8 +1028,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut11eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1158,7 +1050,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1173,8 +1065,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut11eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1195,7 +1087,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1210,8 +1102,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut11eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1232,7 +1124,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1247,8 +1139,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut11eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1269,7 +1161,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1284,8 +1176,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut12eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1306,7 +1198,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1321,8 +1213,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut12eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1343,7 +1235,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1358,8 +1250,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut12eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1380,7 +1272,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1395,8 +1287,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut12eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1417,7 +1309,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1432,8 +1324,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut12eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1454,7 +1346,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);
@@ -1469,8 +1361,8 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 //$user  = $this->getReference('user_' . $faker->numberBetween(1, 8));
                 $statut = $this->getReference('statut12eme_' . $faker->numberBetween(1, 3));
 
-                $pere = $this->getReference('pere_' . $faker->numberBetween(1, 80));
-                $mere = $this->getReference('mere_' . $faker->numberBetween(1, 110));
+                $parent = $this->getReference('parent_' . $faker->numberBetween(1, 80));
+
 
                 $ecoleProvenance = $this->getReference('ecole_' . $faker->numberBetween(1, 20));
                 $eleve = new Eleves();
@@ -1491,7 +1383,7 @@ class ElevesFixtures extends Fixture implements DependentFixtureInterface
                 $eleve->setEcoleRecrutement($ecoleProvenance);
                 //$eleve->setNina($nina);
                 $eleve->setEcoleRecrutement($ecole);
-                $eleve->setmere($mere);
+                $eleve->setParent($parent);
                 $eleve->setAdresse($faker->address());
 
                 $manager->persist($eleve);

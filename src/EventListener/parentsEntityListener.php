@@ -24,9 +24,7 @@ class parentsEntityListener
 
 
         $parents
-            ->setCreatedAt(new \DateTimeImmutable('now'))
-            ->setPereFullName($parents->getPereNom() . ' ' . $parents->getPerePrenom())
-            ->setMereFullName($parents->getMereNom() . ' ' . $parents->getMerePrenom());
+            ->setCreatedAt(new \DateTimeImmutable('now'));
     }
 
     public function preUpdate(Parents $parents, LifecycleEventArgs $arg): void
@@ -37,8 +35,6 @@ class parentsEntityListener
         }*/
 
         $parents
-            ->setUpdatedAt(new \DateTimeImmutable('now'))
-            ->setPereFullName($parents->getPereNom() . ' ' . $parents->getPerePrenom())
-            ->setMereFullName($parents->getMereNom() . ' ' . $parents->getMerePrenom());
+            ->setUpdatedAt(new \DateTimeImmutable('now'));
     }
 }

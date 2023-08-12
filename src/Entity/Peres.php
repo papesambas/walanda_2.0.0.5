@@ -41,12 +41,12 @@ class Peres
     #[ORM\Column(length: 255)]
     private ?string $fullname = null;
 
-    #[ORM\OneToMany(mappedBy: 'epoux', targetEntity: Meres::class)]
-    private Collection $epouses;
+    #[ORM\OneToMany(mappedBy: 'pere', targetEntity: Parents::class)]
+    private Collection $parents;
 
     public function __construct()
     {
-        $this->epouses = new ArrayCollection();
+        $this->parents = new ArrayCollection();
     }
 
     public function __toString()
@@ -132,29 +132,29 @@ class Peres
     }
 
     /**
-     * @return Collection<int, Meres>
+     * @return Collection<int, Parents>
      */
-    public function getEpouses(): Collection
+    public function getParents(): Collection
     {
-        return $this->epouses;
+        return $this->parents;
     }
 
-    public function addEpouse(Meres $epouse): static
+    public function addParent(Parents $parent): static
     {
-        if (!$this->epouses->contains($epouse)) {
-            $this->epouses->add($epouse);
-            $epouse->setEpoux($this);
+        if (!$this->parents->contains($parent)) {
+            $this->parents->add($parent);
+            $parent->setPere($this);
         }
 
         return $this;
     }
 
-    public function removeEpouse(Meres $epouse): static
+    public function removeParent(Parents $parent): static
     {
-        if ($this->epouses->removeElement($epouse)) {
+        if ($this->parents->removeElement($parent)) {
             // set the owning side to null (unless already changed)
-            if ($epouse->getEpoux() === $this) {
-                $epouse->setEpoux(null);
+            if ($parent->getPere() === $this) {
+                $parent->setPere(null);
             }
         }
 

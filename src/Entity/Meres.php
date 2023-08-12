@@ -40,16 +40,12 @@ class Meres
     #[ORM\Column(length: 255)]
     private ?string $fullname = null;
 
-    #[ORM\ManyToOne(inversedBy: 'epouses')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Peres $epoux = null;
-
-    #[ORM\OneToMany(mappedBy: 'mere', targetEntity: Eleves::class)]
-    private Collection $eleves;
+    #[ORM\OneToMany(mappedBy: 'mere', targetEntity: Parents::class)]
+    private Collection $parents;
 
     public function __construct()
     {
-        $this->eleves = new ArrayCollection();
+        $this->parents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,42 +125,30 @@ class Meres
         return $this;
     }
 
-    public function getEpoux(): ?Peres
-    {
-        return $this->epoux;
-    }
-
-    public function setEpoux(?Peres $epoux): static
-    {
-        $this->epoux = $epoux;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, Eleves>
+     * @return Collection<int, Parents>
      */
-    public function getEleves(): Collection
+    public function getParents(): Collection
     {
-        return $this->eleves;
+        return $this->parents;
     }
 
-    public function addElefe(Eleves $elefe): static
+    public function addParent(Parents $parent): static
     {
-        if (!$this->eleves->contains($elefe)) {
-            $this->eleves->add($elefe);
-            $elefe->setMere($this);
+        if (!$this->parents->contains($parent)) {
+            $this->parents->add($parent);
+            $parent->setMere($this);
         }
 
         return $this;
     }
 
-    public function removeElefe(Eleves $elefe): static
+    public function removeParent(Parents $parent): static
     {
-        if ($this->eleves->removeElement($elefe)) {
+        if ($this->parents->removeElement($parent)) {
             // set the owning side to null (unless already changed)
-            if ($elefe->getMere() === $this) {
-                $elefe->setMere(null);
+            if ($parent->getMere() === $this) {
+                $parent->setMere(null);
             }
         }
 

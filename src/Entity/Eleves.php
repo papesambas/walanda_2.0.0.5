@@ -111,15 +111,15 @@ class Eleves
     #[ORM\ManyToOne(inversedBy: 'eleves')]
     private ?Redoublements3 $redoublement3 = null;
 
-    #[ORM\ManyToOne(inversedBy: 'eleves')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Meres $mere = null;
-
     #[ORM\OneToOne(inversedBy: 'eleves', cascade: ['persist', 'remove'])]
     private ?Users $user = null;
 
     #[ORM\OneToMany(mappedBy: 'eleves', targetEntity: DossierEleves::class)]
     private Collection $dossier;
+
+    #[ORM\ManyToOne(inversedBy: 'eleves')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Parents $parent = null;
 
     public function __construct()
     {
@@ -467,18 +467,6 @@ class Eleves
         return $this;
     }
 
-    public function getMere(): ?Meres
-    {
-        return $this->mere;
-    }
-
-    public function setMere(?Meres $mere): static
-    {
-        $this->mere = $mere;
-
-        return $this;
-    }
-
     public function getUser(): ?Users
     {
         return $this->user;
@@ -517,6 +505,18 @@ class Eleves
                 $dossier->setEleves(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getParent(): ?Parents
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?Parents $parent): static
+    {
+        $this->parent = $parent;
 
         return $this;
     }
